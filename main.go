@@ -6,26 +6,25 @@ import (
 )
 
 // Sort ascending input array
-func bubbleSort(container []int) {
-	if container == nil {
+func bubbleSort(c []int) {
+	if c == nil {
 		return
 	}
 
-	if len(container) == 1 {
+	if len(c) == 1 {
 		return
 	}
 
-	for i := 0; i < len(container)-1; i++ {
-		var notSortetSubArray []int = container[0 : len(container)-i]
-		for j := 0; j < len(notSortetSubArray)-1; j++ {
-			if notSortetSubArray[j] > notSortetSubArray[j+1] {
+	for i := 0; i < len(c)-1; i++ {
+		for j := 0; j < len(c)-i-1; j++ {
+			if c[j] > c[j+1] {
 				//swap elements
-				temp := notSortetSubArray[j+1]
-				notSortetSubArray[j+1] = notSortetSubArray[j]
-				notSortetSubArray[j] = temp
+				temp := c[j+1]
+				c[j+1] = c[j]
+				c[j] = temp
 			}
 			fmt.Printf("\r")
-			fmt.Printf("Sorting container = %v", container)
+			fmt.Printf("Sorting container = %v", c)
 			time.Sleep(100 * time.Millisecond)
 		}
 	}
